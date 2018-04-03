@@ -2,6 +2,8 @@
 
 A simple library to deal with JID in elixir.
 
+It's an export of the [Romeo JID](https://github.com/scrogson/romeo)
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
