@@ -1,6 +1,6 @@
 # Jid
 
-**TODO: Add description**
+A simple library to deal with JID in elixir.
 
 ## Installation
 
