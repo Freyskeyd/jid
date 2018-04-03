@@ -34,5 +34,8 @@ install:
 before_script:
   - mix compile
 
+script:
+  - mix test --no-start
+
 after_script:
   - mix coveralls.travis
