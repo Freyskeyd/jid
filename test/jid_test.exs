@@ -34,4 +34,25 @@ defmodule JidTest do
     string = "example.com"
     assert JID.parse(string) == %JID{user: "", server: "example.com", resource: "", full: "example.com"}
   end
+
+  test "user returns a user without a resource nor a server" do
+    jid = %JID{user: "jdoe", server: "example.com", resource: "library"}
+    assert JID.user(jid) == "jdoe"
+    assert JID.user("jdoe@example.com/library") == "jdoe"
+    assert JID.user("jdoe@example.com") == "jdoe"
+  end
+
+  test "server returns a server without a resource nor a user" do
+    jid = %JID{user: "jdoe", server: "example.com", resource: "library"}
+    assert JID.server(jid) == "example.com"
+    assert JID.server("jdoe@example.com/library") == "example.com"
+    assert JID.server("jdoe@example.com") == "example.com"
+  end
+
+  test "resource returns a resource without a server nor a user" do
+    jid = %JID{user: "jdoe", server: "example.com", resource: "library"}
+    assert JID.resource(jid) == "library"
+    assert JID.resource("jdoe@example.com/library") == "library"
+    assert JID.resource("jdoe@example.com") == ""
+  end
 end
