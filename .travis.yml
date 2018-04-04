@@ -35,7 +35,7 @@ before_script:
   - mix compile
 
 script:
-  - mix test --no-start
+  - mix test
 
 after_script:
-  - mix coveralls.travis --no-start
+  - mix coveralls.travis

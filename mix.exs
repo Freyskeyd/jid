@@ -1,7 +1,7 @@
 defmodule Jid.MixProject do
   use Mix.Project
 
-  @version "0.1.1"
+  @version "0.1.2"
 
   def project do
     [
@@ -15,13 +15,6 @@ defmodule Jid.MixProject do
       docs: docs(),
       package: package(),
       test_coverage: [tool: ExCoveralls]]
-  end
-
-  # Run "mix help compile.app" to learn about applications.
-  def application do
-    [
-      extra_applications: [:logger],
-      mod: {JID, []}]
   end
 
   defp description do
