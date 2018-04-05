@@ -55,4 +55,10 @@ defmodule JidTest do
     assert JID.resource("jdoe@example.com/library") == "library"
     assert JID.resource("jdoe@example.com") == ""
   end
+
+  test "nil jid" do
+    assert_raise JID.JIDParsingError, fn ->
+      JID.parse(nil)
+    end
+  end
 end

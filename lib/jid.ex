@@ -35,6 +35,13 @@ defmodule JID do
 
   alias JID
 
+  defmodule JIDParsingError do
+    defexception [:message]
+    def exception(msg) do
+      %JIDParsingError{message: "JID parsing failed with #{inspect msg}"}
+    end
+  end
+
   @type t :: %__MODULE__{}
   defstruct user: "", server: "", resource: "", full: ""
 
@@ -73,6 +80,9 @@ defmodule JID do
   @spec resource(jid :: binary | JID.t) :: binary
   def resource(jid) when is_binary(jid), do: parse(jid).resource
   def resource(%JID{resource: resource}), do: resource
+
+  @spec parse(jid :: nil) :: JIDParsingError
+  def parse(string = nil), do: raise JIDParsingError, message: string
 
   @doc """
   Parses a binary string JID into a JID struct.
