@@ -36,6 +36,7 @@ defmodule JID do
   alias JID
 
   defmodule JIDParsingError do
+    @moduledoc false
     defexception [:message]
     def exception(msg) do
       %JIDParsingError{message: "JID parsing failed with #{inspect msg}"}
@@ -43,6 +44,7 @@ defmodule JID do
   end
 
   @type t :: %__MODULE__{}
+  @derive Jason.Encoder
   defstruct user: "", server: "", resource: "", full: ""
 
   defimpl String.Chars, for: JID do

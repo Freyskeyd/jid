@@ -1,7 +1,7 @@
 defmodule Jid.MixProject do
   use Mix.Project
 
-  @version "0.1.3"
+  @version "0.1.4"
 
   def project do
     [
@@ -23,11 +23,12 @@ defmodule Jid.MixProject do
 
   defp deps do
     [
+      {:jason, "~> 1.0"},
       # Docs deps
-      {:ex_doc, "~> 0.18", only: :dev},
+      {:ex_doc, "~> 0.19", only: :dev},
 
       # Test deps
-      {:excoveralls, "~> 0.8", only: :test}]
+      {:excoveralls, "~> 0.10", only: :test}]
   end
 
   defp docs do
